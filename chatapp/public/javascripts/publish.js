@@ -36,8 +36,8 @@ function publish() {
     else {
         socket.emit("sendMessageEvent", sendMessage);
         $('#message').val("");
-        return false;
     }
+    return false;
 }
 
 // サーバから受信した投稿メッセージを画面上に表示する
