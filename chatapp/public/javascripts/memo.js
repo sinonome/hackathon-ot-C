@@ -20,8 +20,7 @@ function memo() {
     }
     else {
         $('#thread').prepend('<p>' + memoData['time'] + ' : ' + memoData['userName'] + "さんのメモ : " + memoData['memo'] + '</p>');
-        $('#message').val("");
     }
-
+    $('#message').val("");
     return false;
 }
