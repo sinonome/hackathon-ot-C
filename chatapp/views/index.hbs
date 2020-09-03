@@ -8,6 +8,18 @@
                 ユーザ名
                 <input type="text" id="userName" name="userName" class="index-user_name_text">
             </div>
+
+            {{!-- プルダウンセレクトボックスの追加 --}}
+            <div>チャットルーム<br>
+                <select name="roomNumber" id="roomNumber">
+                    <option value="room1">room1</option>
+                    <option value="room2">room2</option>
+                    <option value="room3">room3</option>
+                    <option value="room4">room4</option>
+                    <option value="room5">room5</option>
+                </select>
+                
+            </div>
             <div class="index-enter">
                 <input type="button" value="入室する" class="common-button index-enter_button" onclick="enter();">
             </div>
