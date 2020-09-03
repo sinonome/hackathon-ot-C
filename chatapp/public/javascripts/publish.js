@@ -1,4 +1,5 @@
 'use strict';
+let last_send = Date.now();
 
 // 投稿メッセージをサーバに送信する
 function publish() {
@@ -23,7 +24,6 @@ function publish() {
 
 // サーバから受信した投稿メッセージを画面上に表示する
 socket.on('getMessageEvent', function (data) {
-    console.log(data);
-    console.log(typeof data);
     $('#thread').prepend('<p>' + data['time'] + ' : '+ data['userName'] + ' : ' + data['message'] + '</p>');
+
 });
