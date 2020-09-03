@@ -30,3 +30,15 @@
 <script src="/javascripts/publish.js"></script>
 <script src="/javascripts/memo.js"></script>
 <script src="/javascripts/exit.js"></script>
+
+<script>
+document.onkeydown = function(e) {
+    var keyCode = false;
+    if (e) event = e;
+    if (event) {
+        if (event.keyCode==13) {
+            publish();
+        }
+    }
+};
+</script>
