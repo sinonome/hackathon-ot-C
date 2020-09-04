@@ -32,13 +32,12 @@
 <script src="/javascripts/exit.js"></script>
 
 <script>
-document.onkeydown = function(e) {
-    var keyCode = false;
-    if (e) event = e;
-    if (event) {
-        if (event.keyCode==13) {
+    var textbox = document.getElementById('message');
+    textbox.addEventListener('keypress', onKeyPress)
+    function onKeyPress(e) {
+        if (e.keyCode==13) {
             publish();
-        }
+            e.preventDefault();
+        } 
     }
-};
 </script>
