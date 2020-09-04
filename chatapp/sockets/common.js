@@ -1,6 +1,6 @@
 'use strict';
 
-class PostLog {
+module.exports = class {
     constructor(maxLength) {
         this.len = maxLength;
         this.postarr = [];

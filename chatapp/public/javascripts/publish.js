@@ -45,3 +45,7 @@ socket.on('getMessageEvent', function (data) {
     $('#thread').prepend('<p>' + data['time'] + ' : '+ data['userName'] + ' : ' + data['message'] + '</p>');
 
 });
+
+socket.on('ContinuousPostError', function(data) {
+    alert("最大連続投稿回数を超えました");
+})

@@ -1,8 +1,17 @@
 'use strict';
 
+let PostLog = require('./common.js');
+let maxLen = 10;
+let postlog = new PostLog(maxLen);
+
 module.exports = function (socket, io) {
     // 投稿メッセージを送信する
     socket.on('sendMessageEvent', function (data) {
-        io.sockets.emit('getMessageEvent', data);
+        if (postlog.isContinuous(data['userName'])) {
+            socket.emit('ContinuousPostError', '');
+        } else {
+            postlog.post(data['userName']);
+            io.sockets.emit('getMessageEvent', data);
+        }
     });
 };
