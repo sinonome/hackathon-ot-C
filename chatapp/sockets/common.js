@@ -1,3 +1,5 @@
+'use strict';
+
 class PostLog {
     constructor(maxLength) {
         this.len = maxLength;
