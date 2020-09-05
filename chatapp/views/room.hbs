@@ -7,6 +7,7 @@
             <div class="room-login_user">
                 ログインユーザ：{{userName}}さん
                 <input id="userName" type="hidden" value={{userName}}>
+                <input type="button" value="順番" onclick="OnButtonClick();"/>
             </div>
             <div class="room-message">
                 <textarea id="message" rows="4" class="room-message_textarea" placeholder="投稿文を入力してください"></textarea>
@@ -15,8 +16,17 @@
                 <input type="button" value="投稿" class="common-button room-publish_button" onclick="publish();">
                 <input type="button" value="メモ" class="common-button room-memo_button" onclick="memo();">
             </div>
-            <div class="room-thread">
-                <div id="thread"></div>
+            <div class="room-thread" id="thread">   
+                <div id="thread-des"></div>
+                <div id="thread-asc"></div>
+                <script>
+                    var des=document.getElementById('thread-des')
+                    var asc=document.getElementById('thread-asc');
+                    var desVisible=des.style.display;
+                    var ascVisible=asc.style.display;
+                    asc.style.display = 'none';
+                </script>
+                    
             </div>
             <div class="room-exit">
                 <input type="button" value="退室する" class="common-button room-exit_button" onclick="exit();">
@@ -32,12 +42,17 @@
 <script src="/javascripts/exit.js"></script>
 
 <script>
-    var textbox = document.getElementById('message');
-    textbox.addEventListener('keypress', onKeyPress)
-    function onKeyPress(e) {
-        if (e.keyCode==13) {
-            publish();
-            e.preventDefault();
-        } 
+    var isOrder=false;
+    function OnButtonClick(){
+        if(isOrder==true){
+            des.style.display = ascVisible;
+            asc.style.display = 'none';
+            isOrder=false;
+        }else{
+            des.style.display = 'none';
+            asc.style.display = desVisible;
+            isOrder=true;
+        }
+    return false;
     }
 </script>

@@ -42,10 +42,24 @@ function publish() {
 
 // サーバから受信した投稿メッセージを画面上に表示する
 socket.on('getMessageEvent', function (data) {
-    $('#thread').prepend('<p>' + data['time'] + ' : '+ data['userName'] + ' : ' + data['message'] + '</p>');
-
+    $('#thread-asc').prepend('<p>' + data['time'] + ' : '+ data['userName'] + ' : ' + data['message'] + '</p>');
+    $('#thread-des').append('<p>' + data['time'] + ' : '+ data['userName'] + ' : ' + data['message'] + '</p>');
 });
 
 socket.on('ContinuousPostError', function(data) {
     alert("最大連続投稿回数を超えました");
 })
+
+
+//エンターキーの処理
+var textbox = document.getElementById('message');
+textbox.addEventListener('keypress', onKeyPress)
+function onKeyPress(e) {
+    if (e.keyCode==13) {
+        publish();
+        e.preventDefault();
+    } 
+}
+
+
+
