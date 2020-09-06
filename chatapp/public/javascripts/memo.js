@@ -14,7 +14,7 @@ function memo() {
         alert('メモが未入力です。');
     }
     else {
-        $('#thread').prepend('<p>' + memoData['time'] + ' : ' + memoData['userName'] + "さんのメモ : " + memoData['memo'] + '</p>');
+        $('#memo').prepend('<p>' + memoData['time'] + ' : ' + memoData['userName'] + "さんのメモ : " + memoData['memo'] + '</p>');
     }
     $('#message').val("");
     return false;

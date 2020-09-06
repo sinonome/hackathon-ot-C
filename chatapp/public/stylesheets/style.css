@@ -73,7 +73,19 @@ div {
 .room-thread {
     overflow: scroll;
     width: 500px;
-    height: 500px;
+    height: 200px;
+}
+
+.room-info {
+    overflow: scroll;
+    width: 500px;
+    height: 100px;
+}
+
+.memo-thread {
+    overflow: scroll;
+    width: 500px;
+    height: 100px;
 }
 
 .room-exit {
