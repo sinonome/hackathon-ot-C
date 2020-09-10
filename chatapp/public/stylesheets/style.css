@@ -85,17 +85,20 @@ div {
 
 .room-info {
     overflow: scroll;
-    width: 235px;
+    width: 225px;
     height: 140px;
 }
 
 .in-name {
     overflow: scroll;
-    width: 140px;
+    width: 130px;
     height: 140px;
 }
 
-
+.col-xs-6{
+    margin-right: 5px;
+    margin-left: 5px;
+}
 
 .room-exit {
 
