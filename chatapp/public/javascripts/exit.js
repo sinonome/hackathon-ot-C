@@ -12,6 +12,5 @@ function exit() {
 
 // サーバから受信した退室メッセージを画面上に表示する
 socket.on('receiveExitEvent', function (data) {
-    // $('#info-list').prepend('<p>' + data + "さんが退出しました。" + '</p>');
-    consolo.log(data);
+    $('#info-list').prepend('<p>' + data + "さんが退出しました。" + '</p>');
 });

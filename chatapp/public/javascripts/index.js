@@ -15,5 +15,3 @@ function enter() {
         $('form').submit();
     }
 }
-
-
