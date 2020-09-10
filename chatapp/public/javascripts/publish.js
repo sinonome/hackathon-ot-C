@@ -80,12 +80,17 @@ socket.on('ContinuousPostError', function(data) {
 var textbox = document.getElementById('message');
 textbox.addEventListener('keypress', onKeyPress)
 function onKeyPress(e) {
+<<<<<<< HEAD
     // if (e.keyCode==13) {
     if (event.ctrlKey && e.keyCode===10) {
+=======
+    if (e.keyCode==13) {
+    //if (event.ctrlKey && e.keyCode===10) {
+>>>>>>> 56961758507d24148cb2abbd080c798348ea51f9
         // 投稿処理
         publish();
         e.preventDefault();
-    } else if (event.shiftKey && e.keyCode===13) {
+    } else if (e.shiftKey==true && e.keyCode==13) {
         // メモ処理
         memo();
         e.preventDefault();
