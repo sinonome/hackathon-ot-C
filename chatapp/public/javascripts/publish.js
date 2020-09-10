@@ -81,11 +81,11 @@ var textbox = document.getElementById('message');
 textbox.addEventListener('keypress', onKeyPress)
 function onKeyPress(e) {
     if (e.keyCode==13) {
-    // if (event.ctrlKey && e.keyCode===10) {
+    //if (event.ctrlKey && e.keyCode===10) {
         // 投稿処理
         publish();
         e.preventDefault();
-    } else if (event.shiftKey && e.keyCode===13) {
+    } else if (e.shiftKey==true && e.keyCode==13) {
         // メモ処理
         memo();
         e.preventDefault();

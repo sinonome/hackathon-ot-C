@@ -47,7 +47,7 @@ div {
  * チャットルーム画面（room.hbs）に関する設定
  */
 .room-login_user {
-
+    text-align:right;
  }
 
 .room-message {
@@ -55,7 +55,8 @@ div {
 }
 
 .room-message_textarea {
-    width: 500px;
+    width: 400px;
+    height: 120px;
 }
 
 .room-submit {
@@ -72,21 +73,29 @@ div {
 
 .room-thread {
     overflow: scroll;
-    width: 500px;
-    height: 200px;
-}
-
-.room-info {
-    overflow: scroll;
-    width: 500px;
-    height: 100px;
+    width: 400px;
+    height: 225px;
 }
 
 .memo-thread {
     overflow: scroll;
-    width: 500px;
-    height: 100px;
+    width: 400px;
+    height: 150px;
 }
+
+.room-info {
+    overflow: scroll;
+    width: 235px;
+    height: 140px;
+}
+
+.in-name {
+    overflow: scroll;
+    width: 140px;
+    height: 140px;
+}
+
+
 
 .room-exit {
 
@@ -95,3 +104,4 @@ div {
 .room-exit_button {
 
 }
+
