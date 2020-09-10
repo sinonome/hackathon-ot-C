@@ -1,50 +1,76 @@
 <div class="container">
-    <div class="row">
-        <h1>Node Chat チャットルーム</h1>
-    </div>
-    <div class="row">
-        <form method="post" action="/">
-            <div class="room-login_user">
+    <form method="post" action="/">
+        <div class="row">
+            <p class="title">
+                <h2>Node Chat チャットルーム　</h2>
+            </p>
+            <p class="room-login_user">
                 ログインユーザ：{{userName}}さん
                 <input id="userName" type="hidden" value={{userName}}>
-                <input type="button" value="順番" onclick="OnButtonClick();"/>
-            </div>
-            <div class="room-message">
-                <textarea id="message" rows="4" class="room-message_textarea" placeholder="投稿文を入力してください"></textarea>
-            </div>
-            <div class="room-submit">
-                <input type="button" value="投稿" class="common-button room-publish_button" onclick="publish();">
-                <input type="button" value="メモ" class="common-button room-memo_button" onclick="memo();">
-            </div>
-            <div class="room-thread" id="thread">   
-                <div id="thread-des"></div>
-                <div id="thread-asc"></div>
-                <script>
-                    var des=document.getElementById('thread-des')
-                    var asc=document.getElementById('thread-asc');
-                    var desVisible=des.style.display;
-                    var ascVisible=asc.style.display;
-                    asc.style.display = 'none';
-                </script>
-            </div>
-            <div class="room-info" id="info">   
-                <div id="info-list"></div>
-            </div>
-            <div class="memo-thread" id="memo">   
-                <div id="memo"></div>
-            </div>
-            <div class="room-exit">
+                <!--<div class="room-exit">-->
                 <input type="button" value="退室する" class="common-button room-exit_button" onclick="exit();">
+                <!--</div>-->
+            </p>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <h3>Chat</h3>
+                <div class="room-thread" id="thread">   
+                    <div id="thread-des"></div>
+                    <div id="thread-asc"></div>
+                    <script>
+                        var des=document.getElementById('thread-des')
+                        var asc=document.getElementById('thread-asc');
+                        var desVisible=des.style.display;
+                        var ascVisible=asc.style.display;
+                        asc.style.display = 'none';
+                    </script>
+                </div>
+                <div class="room-message">
+                    <textarea id="message" rows="4" class="room-message_textarea" placeholder="投稿文を入力してください"></textarea>
+                </div>
+                <div class="room-submit">
+                    <input type="button" value="投稿" class="common-button room-publish_button" onclick="publish();">
+                    <input type="button" value="メモ" class="common-button room-memo_button" onclick="memo();">
+                    <input type="button" value="順番" onclick="OnButtonClick();"/>
+                </div>
             </div>
-        </form>
-    </div>
+            <div class="col-lg-6">
+                <h3>Todo</h3>
+                <div class="memo-thread" id="memo">   
+                    <div id="memo"></div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <h3>Information</h3>
+                        <div class="room-info" id="info">   
+                            <div id="info-list"></div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <h3>Name List</h3>
+                        <div class="in-name" id="info">   
+                            <div id="name-list"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
 </div>
 
+{{!-- 右クリックメニュー --}}
+<div class="contextmenu" id="contextmenu">
+    <ul>
+        <li>delete</li>
+    </ul>
+</div>
 <script src="/javascripts/socket.js"></script>
 <script src="/javascripts/enter.js"></script>
 <script src="/javascripts/publish.js"></script>
 <script src="/javascripts/memo.js"></script>
 <script src="/javascripts/exit.js"></script>
+<script src="/javascripts/click.js"></script>
 
 <script>
     var isOrder=false;

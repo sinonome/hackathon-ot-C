@@ -42,8 +42,33 @@ function publish() {
 
 // サーバから受信した投稿メッセージを画面上に表示する
 socket.on('getMessageEvent', function (data) {
-    $('#thread-asc').prepend('<p>' + data['time'] + ' : '+ data['userName'] + ' : ' + data['message'] + '</p>');
-    $('#thread-des').append('<p>' + data['time'] + ' : '+ data['userName'] + ' : ' + data['message'] + '</p>');
+    const userName = $("#userName").val();
+
+    // 投稿内容
+    let post = "<p>" + data["message"] + "</p>" + 
+               "<p>" + data["time"] + " : " + data["userName"] + "</p>";
+
+    // 投稿を左右どちらかに寄せる(背景色はとりあえず)
+    if (userName == data["userName"]) {
+        // 自分の投稿(右寄せ)
+        post = "<div class='clearfix'>" +
+                    "<div class='float-right bg-success'>" + 
+                        post + 
+                     "</div>" + 
+                "</div>";
+    }
+    else {
+        // 他人の投稿(左寄せ)
+        post = "<div class='clearfix'>" +
+                    "<div class='float-left bg-secondary'>" + 
+                        post + 
+                     "</div>" + 
+                "</div>";
+    }
+    $('#thread-asc').prepend(post);
+    $('#thread-des').append(post);
+    // $('#thread-asc').prepend('<p>' + data['time'] + ' : '+ data['userName'] + ' : ' + data['message'] + '</p>');
+    // $('#thread-des').append('<p>' + data['time'] + ' : '+ data['userName'] + ' : ' + data['message'] + '</p>');
 });
 
 socket.on('ContinuousPostError', function(data) {
@@ -55,12 +80,12 @@ socket.on('ContinuousPostError', function(data) {
 var textbox = document.getElementById('message');
 textbox.addEventListener('keypress', onKeyPress)
 function onKeyPress(e) {
-    if (e.keyCode==13) {
-    // if (event.ctrlKey && e.keyCode===10) {
+    // if (e.keyCode==13) {
+    if (event.ctrlKey && e.keyCode===10) {
         // 投稿処理
         publish();
         e.preventDefault();
-    } else if (event.shiftKey && e.keyCode===13) {
+    } else if (e.shiftKey==true && e.keyCode==13) {
         // メモ処理
         memo();
         e.preventDefault();
