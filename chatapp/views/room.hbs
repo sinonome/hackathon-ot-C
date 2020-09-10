@@ -1,19 +1,20 @@
 <div class="container">
     <form method="post" action="/">
         <div class="row">
-            <h2>Node Chat チャットルーム　</h2>
-            <div class="room-login_user">
+            <p class="title">
+                <h2>Node Chat チャットルーム　</h2>
+            </p>
+            <p class="room-login_user">
                 ログインユーザ：{{userName}}さん
                 <input id="userName" type="hidden" value={{userName}}>
                 <!--<div class="room-exit">-->
-                    <input type="button" value="退室する" class="common-button room-exit_button" onclick="exit();">
+                <input type="button" value="退室する" class="common-button room-exit_button" onclick="exit();">
                 <!--</div>-->
-            </div>
+            </p>
         </div>
-
         <div class="row">
-            <div class="col-sm-6">
-                <h5>Chat</h5>
+            <div class="col-lg-6">
+                <h3>Chat</h3>
                 <div class="room-thread" id="thread">   
                     <div id="thread-des"></div>
                     <div id="thread-asc"></div>
@@ -34,20 +35,20 @@
                     <input type="button" value="順番" onclick="OnButtonClick();"/>
                 </div>
             </div>
-            <div class="col-sm-6">
-                <h5>Todo</h5>
+            <div class="col-lg-6">
+                <h3>Todo</h3>
                 <div class="memo-thread" id="memo">   
                     <div id="memo"></div>
                 </div>
                 <div class="row">
-                    <div class="col-xs-6">
-                        <h5>Information</h5>
+                    <div class="col-sm-6">
+                        <h3>Information</h3>
                         <div class="room-info" id="info">   
                             <div id="info-list"></div>
                         </div>
                     </div>
-                    <div class="col-xs-6">
-                        <h5>Name List</h5>
+                    <div class="col-sm-6">
+                        <h3>Name List</h3>
                         <div class="in-name" id="info">   
                             <div id="name-list"></div>
                         </div>
