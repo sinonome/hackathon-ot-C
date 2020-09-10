@@ -12,7 +12,6 @@ function publish() {
         last_send = nowTime;
         isPost = true;
     } else {
-        console.log(nowTime - last_send)
         if (nowTime - last_send < interval_time) {
             alert('投稿間隔が短すぎます');
             return false;
