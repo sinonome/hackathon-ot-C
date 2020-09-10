@@ -24,7 +24,14 @@
                 <input type="button" value="入室する" class="common-button index-enter_button" onclick="enter();">
             </div>
         </form>
+
+        {{!-- 新規アカウント登録ボタン --}}
+        <form name="enterSignUpForm" method="post" action="/sign_up">
+        <input type="button" value="新規アカウント登録" onclick="enterSignUp();">
+        </form>
+
     </div>
 </div>
 
 <script src="/javascripts/index.js"></script>
+<script src="/javascripts/sign_up.js"></script>

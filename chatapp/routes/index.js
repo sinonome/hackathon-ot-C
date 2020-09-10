@@ -14,4 +14,9 @@ router.post('/room', function(request, response, next) {
     response.render('room', { userName: request.body.userName });
 });
 
+// 新規ユーザ登録画面の表示
+router.post('/sign_up', function (request, response, next) {
+    response.render('sign_up', { title: 'こんにちは!', message: 'Rakus' });
+});
+
 module.exports = router;
