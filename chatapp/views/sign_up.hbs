@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="row">
+        <h1>新規登録</h1>
+    </div>
+    <div class="row">
+            <h1>Node Chat サンプル</h1>
+    </div>
+    <div class="row">
+        {{!-- <form method="post" action="/room"> --}}
+        <div>
+            新規ユーザ名
+            <input type="text" id="createUserName" name="createUserName">
+        </div>
+        <div>
+            パスワード
+            <input type="password" id="createUserPassword" name="createUserPassword">
+        </div>
+    </div>
+        <div>
+            <input type="button" value="登録" onclick="createUser()">
+            {{!-- <input type="button" value="登録" onclick="testCreateUser()"> --}}
+        </div>
+        <div>
+            <input type="button" value="戻る" onclick="exitSignUp()">
+
+        </div>
+
+        <div id="signUp"></div>
+
+
+
+</div>
+
+<script src="/javascripts/socket.js"></script>
+<script src="/javascripts/sign_up.js"></script>
+{{!-- <script src="/javascripts/testsqlite.js"></script> --}}
