@@ -1,6 +1,7 @@
 'use strict';
 
-let PostLog = require('./common.js');
+let {PostLog, getRoomNumber} = require("./common.js");
+// let PostLog = require('./common.js');
 let maxLen = 10;
 let postlog = new PostLog(maxLen);
 
