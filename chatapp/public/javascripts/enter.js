@@ -6,7 +6,7 @@
 // 部屋番号を取得する
 const roomNumber = $("#roomNumber").val();
 // 部屋番号の設定を行う
-socket.emit("setRoomNumber", {roomNumber: roomNumber});
+socket.emit("setRoomNumber", {roomNumber:roomNumber});
 
 // 入力されたユーザ名を取得する
 const userName = $("#userName").val();
