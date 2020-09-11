@@ -134,12 +134,12 @@ div {
     position:fixed;
     left: 0px;
     top: 0px;
-    width: 200;
-    height: 100px;
+    width: 45px;
+    height: 25px;
     border: 1px solid #000;
     background-color: #fff;
 }
 
-.contextmenu li{
+.contextmenu p{
     cursor: pointer;
 }
