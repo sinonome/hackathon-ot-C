@@ -83,7 +83,12 @@ div {
 
 .room-login_user {
     text-align: right;
- }
+}
+
+.room-thread, .memo-thread {
+    white-space: pre-wrap; /* チャット，メモの改行を正しく表示 */
+}
+ 
 
 .room-message {
 
