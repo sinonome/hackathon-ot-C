@@ -5,9 +5,8 @@
                 <h2>Node Chat チャットルーム　</h2>
             </p>
             <p class="room-login_user">
-                ログインユーザ：{{userName}}さん in {{roomNumber}}
+                ログインユーザ：{{userName}}さん
                 <input id="userName" type="hidden" value={{userName}}>
-                <input id="roomNumber" type="hidden" value={{roomNumber}}>
                 <!--<div class="room-exit">-->
                 <input type="button" value="退室する" class="common-button room-exit_button" onclick="exit();">
                 <!--</div>-->
@@ -44,7 +43,7 @@
                 <div class="row">
                     <div class="col-sm-6">
                         <h3>Information</h3>
-                        <div class="room-info" id="info">   
+                        <div class="room-info" id="info">
                             <div id="info-list"></div>
                         </div>
                     </div>
