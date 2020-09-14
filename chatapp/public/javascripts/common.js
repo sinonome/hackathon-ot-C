@@ -21,7 +21,7 @@ class Member {
     exit(user) {
         for (let ind in this.memberList) {
             if (this.memberList[ind] === user) {
-                this.memberList = this.memberList.filter((_, i) => i !== ind);
+                this.memberList = this.memberList.filter((_, i) => i != ind);
                 this.len --;
                 return true;
             }
