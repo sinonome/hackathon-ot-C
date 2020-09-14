@@ -18,11 +18,11 @@ socket.on('receiveCreateUserEvent', function (data) {
 });
 
 
-// ログイン画面から新規登録画面に遷移
-function enterSignUp() {
-    document.enterSignUpForm.submit();
+// // ログイン画面から新規登録画面に遷移
+// function enterSignUp() {
+//     document.enterSignUpForm.submit();
 
-}
+// }
 
 // 新規登録画面からログイン画面に遷移
 function exitSignUp() {

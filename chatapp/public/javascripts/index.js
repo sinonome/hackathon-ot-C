@@ -15,3 +15,10 @@ function enter() {
         $('form').submit();
     }
 }
+
+
+
+// ログイン画面から新規登録画面に遷移
+function enterSignUp() {
+    document.enterSignUpForm.submit();
+}
