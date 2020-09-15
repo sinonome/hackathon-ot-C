@@ -1,6 +1,7 @@
 'use strict';
 
-module.exports = class {
+// module.exports = class {
+class PostLog {
     constructor(maxLength) {
         this.len = maxLength;
         this.postarr = [];
@@ -38,3 +39,17 @@ module.exports = class {
         return NumOfPost === 0;
     }
 }
+
+function getRoomNumber (socket) {
+    let pattern = /^room\d+$/ // room数字の文字列にマッチする
+    let roomKeys = Object.keys(socket.rooms);
+    for (let i = 0; i < roomKeys.length; ++i) {
+        let key = roomKeys[i];
+        if (key.match(pattern)) {
+            return key;
+        }
+    }
+}
+
+exports.PostLog = PostLog;
+exports.getRoomNumber = getRoomNumber;

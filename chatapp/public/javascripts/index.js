@@ -12,6 +12,7 @@ function enter() {
     if (!userName.trim()) {
         alert("ユーザ名が未入力です。");
     } else {
-        $('form').submit();
+        document.enterRoomForm.submit();
     }
 }
+

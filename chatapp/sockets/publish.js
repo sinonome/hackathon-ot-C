@@ -1,6 +1,7 @@
 'use strict';
 
-let PostLog = require('./common.js');
+let {PostLog, getRoomNumber} = require("./common.js");
+// let PostLog = require('./common.js');
 let maxLen = 10;
 let postlog = new PostLog(maxLen);
 
@@ -11,7 +12,9 @@ module.exports = function (socket, io) {
             socket.emit('ContinuousPostError', '');
         } else {
             postlog.post(data['userName']);
-            io.sockets.emit('getMessageEvent', data);
+            let roomNumber = getRoomNumber(socket);
+            io.sockets.in(roomNumber).emit('getMessageEvent', data);
+            // io.sockets.emit('getMessageEvent', data);
         }
     });
 };

@@ -7,6 +7,8 @@
             <p class="room-login_user">
                 ログインユーザ：{{userName}}さん
                 <input id="userName" type="hidden" value={{userName}}>
+                <!-- 部屋番号を設定するのに必要 -->
+                <input id="roomNumber" type="hidden" value={{roomNumber}}> 
                 <!--<div class="room-exit">-->
                 <input type="button" value="退室する" class="common-button room-exit_button" onclick="exit();">
                 <!--</div>-->
@@ -15,7 +17,7 @@
         <div class="row">
             <div class="col-lg-6">
                 <h3>Chat</h3>
-                <div class="room-thread" id="thread">   
+                <div class="room-thread" id="thread">
                     <div id="thread-des"></div>
                     <div id="thread-asc"></div>
                     <script>
@@ -37,19 +39,19 @@
             </div>
             <div class="col-lg-6">
                 <h3>Todo</h3>
-                <div class="memo-thread" id="memo">   
+                <div class="memo-thread" id="memo">
                     <div id="memo"></div>
                 </div>
                 <div class="row">
                     <div class="col-sm-6">
                         <h3>Information</h3>
-                        <div class="room-info" id="info">   
+                        <div class="room-info" id="info">
                             <div id="info-list"></div>
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <h3>Name List</h3>
-                        <div class="in-name" id="info">   
+                        <div class="in-name" id="info">
                             <div id="name-list"></div>
                         </div>
                     </div>

@@ -26,5 +26,5 @@ function enterSignUp() {
 
 // 新規登録画面からログイン画面に遷移
 function exitSignUp() {
-    location.href = '/';
+    document.enterSignUpForm.submit();
 }

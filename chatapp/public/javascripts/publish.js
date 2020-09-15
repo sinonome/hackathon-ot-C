@@ -79,8 +79,7 @@ socket.on('ContinuousPostError', function(data) {
 var textbox = document.getElementById('message');
 textbox.addEventListener('keypress', onKeyPress)
 function onKeyPress(e) {
-    // if (e.keyCode==13) {
-    if (event.ctrlKey && e.keyCode===10) {
+    if (e.ctrlKey && e.keyCode===10) {
         // 投稿処理
         publish();
         e.preventDefault();
