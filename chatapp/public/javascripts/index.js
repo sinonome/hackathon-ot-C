@@ -7,12 +7,11 @@ function enter() {
     // 選択されたルーム番号を取得する
     const roomNumber = $('#roomNumber').val();
     // alert(userName + roomNumber);
-    
     // ユーザ名が未入力でないかチェックする
     if (!userName.trim()) {
         alert("ユーザ名が未入力です。");
     } else {
-        $('form').submit();
+        document.enterRoomForm.submit();
     }
 }
 
@@ -21,4 +20,5 @@ function enter() {
 // ログイン画面から新規登録画面に遷移
 function enterSignUp() {
     document.enterSignUpForm.submit();
+
 }
