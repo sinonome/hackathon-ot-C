@@ -15,5 +15,5 @@ socket.emit("sendUserNameEvent", userName);
 
 // サーバから受信した入室メッセージを画面上に表示する
 socket.on('receiveEnterEvent', function (data) {
-    $('#info-list').prepend('<p>' + data + "が入室しました" + '</p>');
+    $('#info-list').prepend('<p>' + data + "が入室しました。" + '</p>');
 });

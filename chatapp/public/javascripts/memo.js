@@ -2,10 +2,12 @@
 
 // メモを画面上に表示する
 function memo() {
+    var time = new Date();
     const memoData = {
         'userName': $('#userName').val(),
         'memo': $('#message').val(),
-        'time': new Date().toLocaleString(),
+        'time': time.toLocaleString(),
+        'idNum': (time.getTime()%100000).toLocaleString(),
     }
 
     // メモの内容を表示
@@ -20,6 +22,29 @@ function memo() {
     return false;
 }
 
+function shareMemo(num){//サーバーに送る
+    //console.log(document.getElementById(num).outerHTML);
+    const shareMemoData = {
+        'memo':document.getElementById(num).outerHTML,
+        'sendName':$('#userName').val(),
+    }
+    socket.emit("sendShareMemoEvent", shareMemoData);
+    return false;
+}
+
 socket.on('getMemoEvent', function (data) {
-    $('#memo').prepend('<p>' + data["time"] + ' : ' + data["memo"] + '</p>'); 
+    $('#memo').prepend(
+                            '<tr>'+
+                                '<td width=80%>'+
+                                    '<p id='+ data["idNum"].replace(/,/g, '') +'><input type="checkbox" >  : ' + data["memo"] +'</p>' +
+                                '</td>'+
+                                '<td>'+
+                                    '<input type="button" onClick=shareMemo('+ data["idNum"].replace(/,/g, '')  +'); value="共有する">' +
+                                '</td>'+
+                            '</tr>'); 
 });
+
+
+socket.on('receiveShareMemoEvent', function (data){
+    $('#memo').prepend(data['memo']+'('+ data['sendName'] +'さんから共有されました)');
+})
