@@ -16,7 +16,7 @@ function memo() {
     }
     else {
         socket.emit("sendMemoEvent", memoData);
-        //$('#memo').prepend('<p>' + memoData['time'] + ' : ' + memoData['userName'] + "さんのメモ : " + memoData['memo'] + '</p>'); 
+        //$('#memo').prepend('<p>' + memoData['time'] + ' : ' + memoData['userName'] + "さんのメモ : " + memoData['memo'] + '</p>');
     }
     $('#message').val("");
     return false;
@@ -29,22 +29,24 @@ function shareMemo(num){//サーバーに送る
         'sendName':$('#userName').val(),
     }
     socket.emit("sendShareMemoEvent", shareMemoData);
+    alert('メモの共有をしました');
     return false;
 }
 
 socket.on('getMemoEvent', function (data) {
     $('#memo').prepend(
-                            '<tr>'+
-                                '<td width=80%>'+
-                                    '<p id='+ data["idNum"].replace(/,/g, '') +'><input type="checkbox" >  : ' + data["memo"] +'</p>' +
-                                '</td>'+
-                                '<td>'+
-                                    '<input type="button" onClick=shareMemo('+ data["idNum"].replace(/,/g, '')  +'); value="共有する">' +
-                                '</td>'+
-                            '</tr>'); 
+                        '<tr>'+
+                            '<td width=80%>'+
+                                '<p id='+ data["idNum"].replace(/,/g, '') +'><input type="checkbox" >  : ' + data["memo"] +'</p>' +
+                            '</td>'+
+                            '<td>'+
+                                '<input type="button" onClick=shareMemo('+ data["idNum"].replace(/,/g, '')  +'); value="共有する">' +
+                            '</td>'+
+                        '</tr>');
 });
 
 
 socket.on('receiveShareMemoEvent', function (data){
     $('#memo').prepend(data['memo']+'('+ data['sendName'] +'さんから共有されました)');
+
 })
