@@ -16,5 +16,7 @@ module.exports = function (server) {
         require('./exit')(socket);
 
         require('./memo')(socket);
+
+        require('./sign_up')(socket,io);
     });
 };
