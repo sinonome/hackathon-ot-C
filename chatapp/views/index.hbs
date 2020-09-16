@@ -23,7 +23,7 @@
                     <option value="room4">room4</option>
                     <option value="room5">room5</option>
                 </select>
-                
+
             </div>
             <div class="index-enter">
                 {{!-- <input type="button" value="入室する" class="common-button index-enter_button" onclick="enter();"> --}}
@@ -32,9 +32,12 @@
         </form>
 
         {{!-- 新規アカウント登録ボタン --}}
-        <form name="enterSignUpForm" method="post" action="/sign_up">
-        <input type="button" value="新規アカウント登録" onclick="enterSignUp();">
-        </form>
+        <div>
+            <form name="enterSignUpForm" method="post" action="/sign_up">
+                <input type="button" value="新規アカウント登録" onclick="enterSignUp();">
+            </form>
+        </div>
+
 
     </div>
 </div>
