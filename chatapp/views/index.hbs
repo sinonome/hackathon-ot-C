@@ -9,6 +9,11 @@
                 <input type="text" id="userName" name="userName" class="index-user_name_text">
             </div>
 
+            <div>
+                パスワード
+                <input type="password" id="password" name="password">
+            </div>
+
             {{!-- プルダウンセレクトボックスの追加 --}}
             <div>チャットルーム<br>
                 <select name="roomNumber" id="roomNumber">
@@ -21,7 +26,8 @@
                 
             </div>
             <div class="index-enter">
-                <input type="button" value="入室する" class="common-button index-enter_button" onclick="enter();">
+                {{!-- <input type="button" value="入室する" class="common-button index-enter_button" onclick="enter();"> --}}
+                <input type="button" value="入室する" class="common-button index-enter_button" onclick="signIn();">
             </div>
         </form>
 
@@ -33,5 +39,8 @@
     </div>
 </div>
 
+<script src="/javascripts/socket.js"></script>
 <script src="/javascripts/index.js"></script>
 <script src="/javascripts/sign_up.js"></script>
+<script src="/javascripts/sign_in.js"></script>
+<script src="/javascripts/enter.js"></script>
