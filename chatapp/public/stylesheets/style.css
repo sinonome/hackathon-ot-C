@@ -87,7 +87,7 @@ div {
 .room-thread, .memo-thread {
     white-space: pre-wrap; /* チャット，メモの改行を正しく表示 */
 }
- 
+
 
 .room-message {
 
@@ -123,7 +123,7 @@ div {
     }
     .memo-thread {
         height: 150px;
-    }    
+    }
     .room-thread {
         height: 400px;
     }
