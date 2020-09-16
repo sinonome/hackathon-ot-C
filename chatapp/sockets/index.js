@@ -20,5 +20,7 @@ module.exports = function (server) {
         require('./sign_up')(socket,io);
 
         require('./sign_in')(socket, io);
+
+        require('./make_db')(socket, io);
     });
 };

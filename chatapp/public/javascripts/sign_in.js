@@ -1,4 +1,4 @@
-// 'use strict';
+'use strict';
 
 // // チャットルームに入室する
 // function enter() {
@@ -43,16 +43,10 @@ function signIn() {
 
 socket.on('receiveSignInEvent', function (data) {
 
-    alert(`${data['signInUserName']}さんがに${data['signInRoomNumber']}に入室します`);
-    // const roomNumber = data['signInRoomNumber'];
-    // // 部屋番号の設定を行う
-    // socket.emit("setRoomNumber", { roomNumber: roomNumber });
+    alert(`ユーザ名 : ${data['signInUserName']}さんが${data['signInRoomNumber']}に入室します`);
+    document.enterRoomForm.submit();
 
-    // // 入力されたユーザ名を取得する
-    // const userName = data['signInUserName'];
-    // // 入室メッセージイベントを送信する
-    // socket.emit("sendUserNameEvent", userName);
-    // // location.href = '/';
+    // location.href = '/';
 });
 
 socket.on('receiveSignInFailureEvent', function (data) {

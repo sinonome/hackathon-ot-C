@@ -11,7 +11,7 @@ module.exports = function (socket, io) {
 
             const stmt = db.prepare('INSERT INTO users VALUES (?, ?)');
             stmt.run([data['createUserName'], data['createUserPassword']]);
-            console.log(data);
+            // console.log(data);
             stmt.finalize();
         });
         db.close();

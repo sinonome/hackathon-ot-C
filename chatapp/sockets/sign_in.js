@@ -32,6 +32,7 @@
 'use strict';
 
 const { getRoomNumber } = require("./common.js");
+
 module.exports = function (socket, io) {
     // 入室メッセージをクライアントに送信する
     socket.on('sendSignInEvent', function (data) {
@@ -45,7 +46,7 @@ module.exports = function (socket, io) {
             // db.get(stmt, data['createUserName'], data['createUserPassword'],function (err, row) {
             // db.get(`select count(*) as count from users where username = '${data['createUserName']}';`, function (err, row) {
             db.get(`select count(*) as count from users where username = '${data['signInUserName']}' and password = '${data['signInPassword']}';`, function (err, row) {
-                console.log(row.count);
+                // console.log(row.count);
                 if (row.count == 1) {
                     console.log('成功');
                     socket.emit("receiveSignInEvent", data);
@@ -60,18 +61,18 @@ module.exports = function (socket, io) {
             stmt.finalize();
         });
         db.close();
-        // socket.emit("receiveSignInEvent", data);
     });
 
-//     socket.on("setRoomNumber", function (data) {
-//         let roomNumber = data.roomNumber;
-//         socket.join(roomNumber);
-//     });
+    // socket.on("setRoomNumber", function (data) {
+    //     let roomNumber = data.roomNumber;
+    //     socket.join(roomNumber);
+    //     console.log(roomNumber);
+    // });
 
-//     // 入室メッセージをクライアントに送信する
-//     socket.on('sendUserNameEvent', function (data) {
-//         let roomNumber = getRoomNumber(socket);
-//         socket.broadcast.in(roomNumber).emit("receiveEnterEvent", data);
-//         // socket.broadcast.emit("receiveEnterEvent", data);
-//     });
+    // // 入室メッセージをクライアントに送信する
+    // socket.on('sendUserNameEvent', function (data) {
+    //     let roomNumber = getRoomNumber(socket);
+    //     socket.broadcast.in(roomNumber).emit("receiveEnterEvent", data);
+    //     // socket.broadcast.emit("receiveEnterEvent", data);
+    // });
 };
