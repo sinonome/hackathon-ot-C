@@ -10,16 +10,28 @@ module.exports = function (socket, io) {
             // db.run('CREATE TABLE IF NOT EXISTS users (username text UNIQUE, password text)');
 
             const stmt = db.prepare('INSERT INTO users VALUES (?, ?, ?)');
-            stmt.run([data['createUserName'], data['createUserPassword'],0]);
+            stmt.run([data['createUserName'], data['createUserPassword'], 0], function (err) {
+                if (err) {
+                    console.log('error');
+                    socket.emit("receiveErrorCreateUserEvent", data['createUserName']);
+                }
+                else{
+                    socket.emit("receiveCreateUserEvent", data['createUserName']);
+                }
+            });
             // console.log(data);
+
+
+
             stmt.finalize();
         });
         db.close();
         
 
-        socket.emit("receiveCreateUserEvent", data['createUserName']);
+        
     });
 };
+
 
 
 // 'use strict';

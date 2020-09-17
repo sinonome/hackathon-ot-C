@@ -8,14 +8,28 @@ function createUser() {
         'createUserName': $('#createUserName').val(),
         'createUserPassword': $('#createUserPassword').val(),
     }
-    socket.emit("sendCreateUserEvent", createUserData);
+
+    if (!createUserData['createUserName'].trim() || !createUserData['createUserPassword'].trim()) {
+        alert("ユーザ名もしくはパスワードを入力してください");
+    } else {
+        socket.emit("sendCreateUserEvent", createUserData);
+    }
+    
 }
+
 
 socket.on('receiveCreateUserEvent', function (data) {
 
     alert(data + "さんのユーザが作成されました");
     location.href = '/';
 });
+
+
+socket.on('receiveErrorCreateUserEvent', function (data) {
+    alert(`ユーザ名 : ${data} はすでに存在しています`);
+});
+
+
 
 
 // ログイン画面から新規登録画面に遷移

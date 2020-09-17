@@ -24,6 +24,7 @@ function signIn() {
 
     }
     socket.emit("sendSignInEvent", signInData);
+
 }
 
 // socket.on('receiveSignInEvent', function (data) {
