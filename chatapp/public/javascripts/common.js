@@ -83,5 +83,4 @@ class Publish {
 function scroll_end(isOrder) {
     let textElement = document.getElementById("thread");
     textElement.scrollTop = textElement.scrollHeight * !isOrder;
-    console.log(textElement.scrollHeight * !isOrder);
 }
