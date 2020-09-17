@@ -43,7 +43,6 @@ function publish() {
 socket.on('getMessageEvent', function (data) {
     const userName = $("#userName").val();
     const isown = userName === data["userName"];
-    console.log(data)
     let post = Publish.viewMessage(isown, data);
     // if (userName == data["userName"]) {
     //     // 自分の投稿(右寄せ)
