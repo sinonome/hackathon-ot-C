@@ -1,46 +1,47 @@
 <div class="container">
     <div class="row">
-        <h1>Node Chat サンプル</h1>
+        <div class="col-lg-6">
+        <h1 class="new-title text-success">Work Chat</h1>
+    </div>
     </div>
     <div class="row">
-        <form method="post" action="/room" name="enterRoomForm">
+        <div class="col-lg-6">
+        <form method="post" action="/room" name="enterRoomForm" class="form-box">
             <div class="index-user_name">
-                ユーザ名
-                <input type="text" id="userName" name="userName" class="index-user_name_text">
+                <input type="text" id="userName" name="userName" class="index-user_name_text" placeholder="username">
             </div>
-
             <div>
-                パスワード
-                <input type="password" id="password" name="password">
+                <input type="password" id="password" name="password" placeholder="password">
             </div>
-
-            {{!-- プルダウンセレクトボックスの追加 --}}
-            <div>チャットルーム<br>
+            <div class="cp_ipselect cp_sl01">
                 <select name="roomNumber" id="roomNumber">
                     <option value="room1">room1</option>
-                    <option value="room2">room2</option>
-                    <option value="room3">room3</option>
-                    <option value="room4">room4</option>
-                    <option value="room5">room5</option>
-                </select>
+                                    <option value="room2">room2</option>
+                                    <option value="room3">room3</option>
+                                    <option value="room4">room4</option>
+                                    <option value="room5">room5</option>
+                                </select>
+                            </div>
+                            </div>
+            
+
 
             </div>
-            <div class="index-enter">
+            <div class="row">
+            <div class="col-lg-3">
                 {{!-- <input type="button" value="入室する" class="common-button index-enter_button" onclick="enter();"> --}}
-                <input type="button" value="入室する" class="common-button index-enter_button" onclick="signIn();">
+                <input type="button" value="入室する" class="btn btn-info btn-block login" onclick="signIn();">
             </div>
+            
         </form>
+            <div class="col-lg-3">
+                <form name="enterSignUpForm" method="post" action="/sign_up">
+                    <input type="button" value="新規アカウント登録" class="btn btn-info btn-block login" onclick="enterSignUp();">
+                </form>
+            </div>
+            </div>
+            </div>
 
-        {{!-- 新規アカウント登録ボタン --}}
-        <div>
-            <form name="enterSignUpForm" method="post" action="/sign_up">
-                <input type="button" value="新規アカウント登録" onclick="enterSignUp();">
-            </form>
-        </div>
-
-
-    </div>
-</div>
 
 <script src="/javascripts/socket.js"></script>
 <script src="/javascripts/index.js"></script>
