@@ -151,3 +151,90 @@ div {
 .contextmenu p{
     cursor: pointer;
 }
+
+/* チャットアプリレイアウト */
+/* 大枠 */
+
+.chat-outline {
+    margin: 5px; /* チャットの表示間隔などの設定 */
+}
+
+/* 自分の投稿 */
+.own-message {
+    /* チャットの右寄せ */
+    display: flex;
+    justify-content: flex-end;
+
+    /* この枠の右寄せ */
+    margin: 0 0 0 auto;
+
+    /* other */
+    width: 80%;
+}
+
+/* 他の人の投稿 */
+.another-message {
+    /* チャットの左寄せ */
+    display: flex;
+    justify-content: flex-start;
+
+    /* この枠の左寄せ */
+    margin: 0 0 auto 0;
+
+    /* other */
+    width: 80%;
+}
+
+/* チャット表示部分 */
+.chat-frame {
+    margin: 0px;
+    display: block;
+    max-width: 100%;
+}
+
+/* 名前などを表示する */
+.chat-info {
+    margin: 0px;
+    display: flex;
+}
+
+.chat-item__name {
+    vertical-align: middle;
+    cursor: default;
+    font-size: 15px;
+    margin: 0px;
+}
+
+.chat-item__date {
+    margin: 0px;
+    vertical-align: middle;
+    cursor: default;
+    font-size: 15px;
+    margin: 0px;
+}
+
+/* 投稿内容を表示する */
+.chat-message {
+    display: inline-block;
+    /* 枠線レイアウト */
+    border: 1px solid #000000;  /* 枠線 */
+    border-radius: 10px;          /* 丸み */
+
+    /* 高さなどのレイアウト */
+    min-width: 50px;
+    min-height: 25px;
+    max-width: 100%;
+    height:auto !important;
+    /* width:auto !important; */
+    width: 100%;
+    margin: 0px;
+    padding: 2px 5px 2px 5px;
+    /* 折り返し設定 */
+    /* word-wrap:break-all; */
+}
+
+/* 文字レイアウト */
+.chat-message p {
+    margin: 0px;
+    word-wrap: break-word;
+}

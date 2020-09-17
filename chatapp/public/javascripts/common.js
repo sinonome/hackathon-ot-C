@@ -44,6 +44,43 @@ class Member {
     }
 }
 
-// class Publish {
-//     PostMessage(message);
-// }
+class Publish {
+    static viewMessage(isOwn, data) {
+        if (data === null) {
+            console.log("データがありません");
+            return "";
+        }
+        let layoutClass= (isOwn?"own-message":"another-message");
+        let userName = data["userName"];
+        let postDate = data["time"];
+        let message = "<p>" + data["message"] + "</p>";
+
+        let postDiv = (
+            "<div class='chat-outline'>" +
+            `<div class='${layoutClass}'>` +
+            `<div class='chat-frame'>` +
+            // infomation
+            `<div class='chat-info'>` +
+            `<div class='chat-item__name'>` +
+            userName +
+            "</div>"+
+            `<div class='chat-item__date'>` +
+            postDate +
+            "</div>" +
+            "</div>" +
+            // message
+            `<div class='chat-message'>` +
+            message +
+            "</div>" +
+            "</div>" +
+            "</div>" +
+            "</div>"
+        );
+        return postDiv;
+    }
+}
+
+function scroll_end() {
+    let textElement = document.getElementById("thread");
+    textElement.scrollTop = textElement.scrollHeight;
+}
