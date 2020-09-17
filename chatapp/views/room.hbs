@@ -21,7 +21,7 @@
                     <div id="thread-des"></div>
                     <div id="thread-asc"></div>
                     <script>
-                        var des=document.getElementById('thread-des')
+                        var des=document.getElementById('thread-des');
                         var asc=document.getElementById('thread-asc');
                         var desVisible=des.style.display;
                         var ascVisible=asc.style.display;
@@ -72,22 +72,7 @@
 <script src="/javascripts/memo.js"></script>
 <script src="/javascripts/exit.js"></script>
 <script src="/javascripts/click.js"></script>
-
-<script>
-    var isOrder=false;
-    function OnButtonClick(){
-        if(isOrder==true){
-            des.style.display = ascVisible;
-            asc.style.display = 'none';
-            isOrder=false;
-        }else{
-            des.style.display = 'none';
-            asc.style.display = desVisible;
-            isOrder=true;
-        }
-        return false;
-    }
-</script>
+<script src="/javascripts/init.js"></script>
 
 <script>
     // scroll

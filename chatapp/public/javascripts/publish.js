@@ -45,6 +45,7 @@ socket.on('getMessageEvent', function (data) {
     const isown = userName === data["userName"];
     let post = Publish.viewMessage(isown, data);
     $('#thread-asc').prepend(post);
+    post = Publish.viewMessage(isown, data);
     $('#thread-des').append(post);
     scroll_end(isOrder);
 });
