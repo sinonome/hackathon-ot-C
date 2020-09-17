@@ -42,30 +42,28 @@ function publish() {
 // サーバから受信した投稿メッセージを画面上に表示する
 socket.on('getMessageEvent', function (data) {
     const userName = $("#userName").val();
-
-    // 投稿内容
-    let post = "<p>" + data["message"] + "</p>" + 
-               "<p>" + data["time"] + " : " + data["userName"] + "</p>";
-
-    // 投稿を左右どちらかに寄せる(背景色はとりあえず)
-    if (userName == data["userName"]) {
-        // 自分の投稿(右寄せ)
-        post = "<div class='clearfix'>" +
-                    "<div class='float-right bg-success'>" + 
-                        post + 
-                     "</div>" + 
-                "</div>";
-    }
-    else {
-        // 他人の投稿(左寄せ)
-        post = "<div class='clearfix'>" +
-                    "<div class='float-left bg-secondary'>" + 
-                        post + 
-                     "</div>" + 
-                "</div>";
-    }
+    const isown = userName === data["userName"];
+    console.log(data)
+    let post = Publish.viewMessage(isown, data);
+    // if (userName == data["userName"]) {
+    //     // 自分の投稿(右寄せ)
+    //     post = "<div class='clearfix'>" +
+    //                 "<div class='float-right bg-success'>" +
+    //                     post +
+    //                  "</div>" +
+    //             "</div>";
+    // }
+    // else {
+    //     // 他人の投稿(左寄せ)
+    //     post = "<div class='clearfix'>" +
+    //                 "<div class='float-left bg-secondary'>" +
+    //                     post +
+    //                  "</div>" +
+    //             "</div>";
+    // }
     $('#thread-asc').prepend(post);
     $('#thread-des').append(post);
+    scroll_end(isOrder);
     // $('#thread-asc').prepend('<p>' + data['time'] + ' : '+ data['userName'] + ' : ' + data['message'] + '</p>');
     // $('#thread-des').append('<p>' + data['time'] + ' : '+ data['userName'] + ' : ' + data['message'] + '</p>');
 });

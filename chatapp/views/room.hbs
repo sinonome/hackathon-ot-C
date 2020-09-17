@@ -8,7 +8,7 @@
                 ログインユーザ：{{userName}}さん
                 <input id="userName" type="hidden" value={{userName}}>
                 <!-- 部屋番号を設定するのに必要 -->
-                <input id="roomNumber" type="hidden" value={{roomNumber}}> 
+                <input id="roomNumber" type="hidden" value={{roomNumber}}>
                 <!--<div class="room-exit">-->
                 <input type="button" value="退室する" class="common-button room-exit_button" onclick="exit();">
                 <!--</div>-->
@@ -65,6 +65,7 @@
 <div class="contextmenu" id="contextmenu">
     <p onclick="deleteMessage();">delete</p>
 </div>
+<script src="/javascripts/common.js"></script>
 <script src="/javascripts/socket.js"></script>
 <script src="/javascripts/enter.js"></script>
 <script src="/javascripts/publish.js"></script>
@@ -86,4 +87,9 @@
         }
         return false;
     }
+</script>
+
+<script>
+    // scroll
+    scroll_end(isOrder);
 </script>
