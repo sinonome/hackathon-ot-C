@@ -7,12 +7,19 @@ function createUser() {
     const createUserData = {
         'createUserName': $('#createUserName').val(),
         'createUserPassword': $('#createUserPassword').val(),
+        'createUserPassword2': $('#createUserPassword2').val(),
+
     }
 
-    if (!createUserData['createUserName'].trim() || !createUserData['createUserPassword'].trim()) {
-        alert("ユーザ名もしくはパスワードを入力してください");
+    if (!createUserData['createUserName'].trim() || !createUserData['createUserPassword'].trim() ) {
+            alert("usernameとpasswordを入力してください");
     } else {
-        socket.emit("sendCreateUserEvent", createUserData);
+        if (createUserData['createUserPassword'] != createUserData['createUserPassword2']) {
+            alert("パスワードが異なっています");
+        }
+        else {
+            socket.emit("sendCreateUserEvent", createUserData);
+        }
     }
     
 }
