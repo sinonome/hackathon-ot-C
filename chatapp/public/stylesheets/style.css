@@ -238,3 +238,7 @@ div {
     margin: 0px;
     word-wrap: break-word;
 }
+
+.thread-des, .thread-asc {
+    margin: 0px;
+}

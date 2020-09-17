@@ -63,7 +63,7 @@ socket.on('getMessageEvent', function (data) {
     // }
     $('#thread-asc').prepend(post);
     $('#thread-des').append(post);
-    scroll_end();
+    scroll_end(isOrder);
     // $('#thread-asc').prepend('<p>' + data['time'] + ' : '+ data['userName'] + ' : ' + data['message'] + '</p>');
     // $('#thread-des').append('<p>' + data['time'] + ' : '+ data['userName'] + ' : ' + data['message'] + '</p>');
 });
