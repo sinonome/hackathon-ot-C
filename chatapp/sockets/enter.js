@@ -18,7 +18,7 @@ module.exports = function (socket) {
 
 
     socket.on('sendEnterisExistEvent', function (data) {
-        console.log(data);
+        // console.log(data);
         var sqlite3 = require('sqlite3').verbose();
         var db = new sqlite3.Database('db/users.sqlite');
         db.serialize(() => {
