@@ -27,7 +27,7 @@ module.exports = function (socket, io) {
         var db = new sqlite3.Database('db/users.sqlite');
 
         db.serialize(function () {
-            db.run('CREATE TABLE IF NOT EXISTS users (username text UNIQUE, password text)');
+            db.run('CREATE TABLE IF NOT EXISTS users (username text UNIQUE, password text,isExist int)');
         });
         db.close();
         socket.emit("receiveInitCreateUserEvent", data['createUserName']);

@@ -7,10 +7,10 @@ module.exports = function (socket, io) {
         var db = new sqlite3.Database('db/users.sqlite');
 
         db.serialize(function () {
-            db.run('CREATE TABLE IF NOT EXISTS users (username text UNIQUE, password text)');
+            // db.run('CREATE TABLE IF NOT EXISTS users (username text UNIQUE, password text)');
 
-            const stmt = db.prepare('INSERT INTO users VALUES (?, ?)');
-            stmt.run([data['createUserName'], data['createUserPassword']]);
+            const stmt = db.prepare('INSERT INTO users VALUES (?, ?, ?)');
+            stmt.run([data['createUserName'], data['createUserPassword'],0]);
             // console.log(data);
             stmt.finalize();
         });
